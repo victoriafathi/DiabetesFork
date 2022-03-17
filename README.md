@@ -15,3 +15,12 @@ Template for Machine Learning model development. Designed for simpler model deve
 - Add workflow automation using GitHub Actions in **.github/workfows/**
 
 Testing workflow and branch protection rules are designed with simple gitflow brancing strategy in mind. When implementing a new feature branch out, commit new code, push new branch and merge it to main when the code is finalized and new unit tests are created.
+
+## Environment
+**diabetes_project.yml** contains all the necessary librairies for this project.
+
+
+You can create a conda environment from it with the following command:
+```
+conda env create --name <envname> --file diabetes_project.yml
+```
