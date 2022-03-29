@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import re
 
-def column_name_cleaning(table):
+# CONSTANTS
+YES_REPLACEMENT = 'yes'
+NO_REPLACEMENT = 'no'
+
+def clean_column_name(table):
     table.columns = table.columns.str.lower()
     table.columns = [re.sub('(,)|(:)|(-)', '', x) for x in table.columns]
     table.columns = [re.sub('(_)', ' ', x) for x in table.columns]
@@ -15,7 +20,7 @@ def column_name_cleaning(table):
 
 
 
-def str_column_cleaning(table):
+def clean_str_column(table):
     for col in table.columns:
         if table[col].dtype == object:
             table[col] = table[col].str.lower()
@@ -24,4 +29,3 @@ def str_column_cleaning(table):
             table[col] = table[col].str.strip(' ')
 
 
-if __name__ == "__main__":
