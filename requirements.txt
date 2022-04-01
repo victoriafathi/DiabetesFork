@@ -1,0 +1,13 @@
+python==3.9
+
+# Data manipulation
+pandas
+numpy
+
+# Plots
+plotly
+matplotlib
+seaborn
+pandas_profiling
+
+# Clustering
