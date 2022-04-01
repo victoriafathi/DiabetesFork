@@ -11,12 +11,12 @@ def clean_column_name(table):
     table.columns = [re.sub('(,)|(:)|(-)', '', x) for x in table.columns]
     table.columns = [re.sub('(_)', ' ', x) for x in table.columns]
     table.columns = [x.strip(' ') for x in table.columns]
-    
     # patient id column name normalization
-    if 'subject number' in table.columns: 
-        table = table.rename(mapper={'subject number': 'patient id'}, axis=1)
+    if "subject number" in table.columns: 
+        print("hello")
+        table.rename(mapper={'subject number': 'patient id'}, axis=1, inplace=True)
     elif 'patient id' in table.columns: 
-        table = table.rename(mapper={'patient id': 'patient id'}, axis=1)
+        table.rename(mapper={'patient id': 'patient id'}, axis=1, inplace=True)
 
 
 

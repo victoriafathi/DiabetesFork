@@ -62,10 +62,8 @@ df.drop(labels=perfusion_dict["irrelevant_features"], axis="columns", inplace=Tr
 
 ## Inconsistency
 ### patients annotated with and without diabetes
-dm_history =  df[df["dm patient medical history"] == 'yes']['patient id']
-dm_group = df[df['group']=='dm']['patient id']
-inconsistent_patient = dm_group[~dm_group.isin(list(dm_history))]
-df.drop(labels=inconsistent_patient.index, axis='index', inplace=True)
+inconsistent_patients_index = df[df["patient id"].isin(perfusion_dict["inconsistent_patients"])].index
+df.drop(labels=inconsistent_patients_index, axis='index', inplace=True)
 
 
 ### spelling
@@ -81,18 +79,11 @@ df = df.replace(to_replace = {yes:cleaning.YES_REPLACEMENT,
                               typo: np.nan}, 
                               regex=True)
 
+df.rename(mapper={'dm nondm stroke':'diabetes'}, axis=1, inplace=True)
+
 ### wrong column type
 df["dm family history"] = pd.to_numeric(df["dm family history"], errors='ignore', downcast='integer')
 
-
-## Redundancy 
-if args.verbose:
-    print('Redundancy')
-df.drop(labels=['group', 'dm patient medical history'], axis='columns', inplace=True)
-df.rename(mapper={'dm nondm stroke':'diabetes'}, axis=1, inplace=True)
-
-
-df["dm family history"] = pd.to_numeric(df["dm family history"], errors='ignore', downcast='integer')
 ## Missing value
 if args.verbose:
     print('Missing value')
@@ -102,4 +93,4 @@ df = df.dropna(thresh=len(df)*thresh, axis='columns')
 
 # Write file
 df.to_csv(args.output, index=False, encoding='utf-8')
-print("file written")
+print(f"file written to {(args.output)}")
