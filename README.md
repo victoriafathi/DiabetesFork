@@ -23,10 +23,10 @@ This project aims to explore links between diabetes and cardiovascular diseases.
 
 
 ## Environment
+Two ways, if you want to have the exact same environment as the one used during this project you should use the **diabetes_project.yml** file that includes dependancies. On the other hand if you just want the main librairies used **requirements.txt**
 
-**diabetes_project.yml** contains all the necessary libraries for this project.
 
 You can create a conda environment from it with the following command:
 ```
-conda env create --name <envname> --file diabetes_project.yml
+conda env create --name <envname> --file <your preference>
 ```
