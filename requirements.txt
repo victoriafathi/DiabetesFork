@@ -3,6 +3,7 @@ python==3.9
 # Data manipulation
 pandas
 numpy
+spicy 
 
 # Plots
 plotly
@@ -10,4 +11,13 @@ matplotlib
 seaborn
 pandas_profiling
 
-# Clustering
+# Clustering and Modeling
+scikit-learn
+shap
+prince
+umap
+kmodes
+gower
+tensorflow
+
+
