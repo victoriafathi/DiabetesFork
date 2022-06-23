@@ -1,6 +1,12 @@
 # Diabetes Project
 This project aims to explore links between diabetes and cardiovascular diseases. Eventually, this analysis could lead to the development of a future application to follow patients with high risk of cardiovascular diseases through the assessment of their risk and recommendations to lower it.
 
+## Notation 
+This project is part of a master's thesis. Notation differs from thesis: 
+dataset_1 is mentionned as "stroke dataset"
+dataset_2 as "perfusion dataset"
+
+
 ## Organization
 ```
 .
@@ -31,3 +37,6 @@ You can create a conda environment from it with the following command:
 ```
 conda create --name <env> --file <your choice>
 ```
+
+
+author: Victoria FATHI 
